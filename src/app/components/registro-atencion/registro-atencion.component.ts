@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MascotaService } from '../../services/mascota.service';
 import { TipoAtencionService } from '../../services/tipo-atencion.service';
 import {FormsModule} from "@angular/forms";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import * as http from "node:http";
 import {AtencionService} from "../../services/atencion.service";
 import { Router } from '@angular/router';
@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
   imports: [
     FormsModule,
     NgForOf,
+    NgIf,
   ],
   styleUrls: ['./registro-atencion.component.css']
 })
@@ -25,6 +26,7 @@ export class RegistroAtencionComponent implements OnInit {
   selectedTipoAtencion: string = '';
   fechaAtencion: Date | null = null;
   horaAtencion: string = '';
+  successMessage: string = '';
 
   constructor(
     private mascotaService: MascotaService,
@@ -49,12 +51,20 @@ export class RegistroAtencionComponent implements OnInit {
       tipoAtencion: this.selectedTipoAtencion,
       fechaAtencion: this.fechaAtencion,
       hora: this.horaAtencion,
-      estado: 'pendiente'
+      estado: 'pendiente',
     };
-    const ans = this.atencionService.crearAtencion(registro);
+    this.atencionService.crearAtencion(registro).subscribe(
+      (data) => {
+        this.successMessage = '¡Registro exitoso!';
+        console.log('Respuesta:', data);
+      },
+      (error) => {
+        console.error('Error al registrar la atención:', error);
+        this.successMessage = 'Ocurrió un error al registrar la atención.';
+      }
+    );
+
     console.log('Registro enviado:', registro);
-    console.log('Fecha seleccionada:', this.fechaAtencion);
-    console.log('Respuesta:', ans.subscribe(data => console.log(data)));
   }
   onConsultar(): void {
     this.router.navigate(['/listar']);

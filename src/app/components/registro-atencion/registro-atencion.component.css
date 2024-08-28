@@ -54,3 +54,7 @@
 .form-container div:last-child {
   text-align: center;
 }
+.success-message {
+  color: green;
+  margin-top: 10px;
+}

@@ -28,4 +28,7 @@
     <button (click)="onSubmit()">Registrar</button>
     <button (click)="onConsultar()">Consultar</button>
   </div>
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
 </div>
