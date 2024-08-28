@@ -1,0 +1,40 @@
+<div class="consulta-container">
+  <h2 class="consulta-titulo">Consulta de Atenciones</h2>
+
+  <div class="consulta-formulario">
+    <label for="fechaAtencion" class="consulta-label">Fecha de Atención:</label>
+    <input id="fechaAtencion" type="date" [(ngModel)]="fechaAtencion" class="consulta-input">
+    <button (click)="consultarAtenciones()" class="consulta-boton">Consultar</button>
+  </div>
+
+  <div *ngIf="atenciones.length > 0" class="consulta-tabla-container">
+    <table class="consulta-tabla">
+      <thead>
+      <tr>
+        <th>Mascota</th>
+        <th>Nombre Duenio</th>
+        <th>Tipo Atención</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let atencion of atenciones">
+        <td>{{ atencion.codigoMascota.nombreMascota }}</td>
+        <td>{{ atencion.codigoMascota.nombreDueno}}</td>
+        <td>{{ atencion.tipoAtencion.tipoAtencion }}</td>
+        <td>{{ atencion.fechaAtencion }}</td>
+        <td>{{ atencion.hora }}</td>
+        <td>
+          <button (click)="eliminarAtencion(atencion.codigo)" class="consulta-boton-eliminar">Eliminar</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="atenciones.length === 0" class="consulta-mensaje">
+    <p>No se encontraron atenciones para la fecha seleccionada.</p>
+  </div>
+</div>

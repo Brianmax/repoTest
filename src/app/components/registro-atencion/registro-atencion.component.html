@@ -1,0 +1,31 @@
+<div class="form-container">
+  <h2>Apellidos y Nombre</h2>
+  <div>
+    <label>Mascota:</label>
+    <select [(ngModel)]="selectedMascota">
+      <option *ngFor="let mascota of mascotas" [value]="mascota.codigoMascota">
+        {{mascota.nombreMascota}}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label>Tipo atención:</label>
+    <select [(ngModel)]="selectedTipoAtencion">
+      <option *ngFor="let tipo of tiposAtencion" [value]="tipo.tipoAtencion">
+        {{tipo.tipoAtencion}}
+      </option>
+    </select>
+  </div>
+  <div>
+    <label>Fecha:</label>
+    <input type="date" [(ngModel)]="fechaAtencion">
+  </div>
+  <div>
+    <label>Hora:</label>
+    <input type="time" [(ngModel)]="horaAtencion">
+  </div>
+  <div>
+    <button (click)="onSubmit()">Registrar</button>
+    <button (click)="onConsultar()">Consultar</button>
+  </div>
+</div>

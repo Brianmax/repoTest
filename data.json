@@ -1,0 +1,23 @@
+{
+  "mascotas": [
+    { "cod_mascota": "1", "nombre": "Fido", "nombre_duenio": "Juan Pérez", "peso": 15, "tipo_mascota": "Perro" },
+    { "cod_mascota": "2", "nombre": "Miau", "nombre_duenio": "Ana Gómez", "peso": 5, "tipo_mascota": "Gato" },
+    { "cod_mascota": "3", "nombre": "Max", "nombre_duenio": "Pedro López", "peso": 25, "tipo_mascota": "Perro" },
+    { "cod_mascota": "4", "nombre": "Luna", "nombre_duenio": "Carla Martínez", "peso": 7, "tipo_mascota": "Gato" }
+  ],
+  "tiposAtencion": [
+    { "tipo": "consulta", "descripcion": "Consulta general" },
+    { "tipo": "vacunacion", "descripcion": "Vacunación" },
+    { "tipo": "emergencia", "descripcion": "Atención de emergencia" }
+  ],
+  "atenciones": [
+    { "codigo": "101", "cod_mascota": "1", "tipo_atencion": "consulta", "fecha_atencion": "2024-08-25", "hora": "10:00", "estado": "completado" },
+    { "codigo": "102", "cod_mascota": "2", "tipo_atencion": "vacunacion", "fecha_atencion": "2024-08-25", "hora": "11:00", "estado": "completado" },
+    { "codigo": "103", "cod_mascota": "3", "tipo_atencion": "emergencia", "fecha_atencion": "2024-08-26", "hora": "09:30", "estado": "pendiente" },
+    { "codigo": "104", "cod_mascota": "4", "tipo_atencion": "consulta", "fecha_atencion": "2024-08-26", "hora": "14:00", "estado": "completado" },
+    { "codigo": "105", "cod_mascota": "1", "tipo_atencion": "vacunacion", "fecha_atencion": "2024-08-27", "hora": "13:00", "estado": "pendiente" },
+    { "codigo": "106", "cod_mascota": "2", "tipo_atencion": "emergencia", "fecha_atencion": "2024-08-27", "hora": "15:00", "estado": "completado" },
+    { "codigo": "107", "cod_mascota": "3", "tipo_atencion": "consulta", "fecha_atencion": "2024-08-28", "hora": "08:30", "estado": "pendiente" },
+    { "codigo": "108", "cod_mascota": "4", "tipo_atencion": "vacunacion", "fecha_atencion": "2024-08-28", "hora": "11:00", "estado": "completado" }
+  ]
+}
